@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shakhsiyat aur Rishta Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.8;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+        h1 {
+            color: #667eea;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        .instructions {
+            background: #f0f7ff;
+            border-left: 5px solid #3b82f6;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        .instructions h3 {
+            color: #1e40af;
+            margin-bottom: 10px;
+        }
+        .instructions p {
+            color: #1e3a8a;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .section-desc {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        .question {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+        }
+        .question-text {
+            font-size: 15px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        .question-number {
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        .rating-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .rating-labels {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .rating-options {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .rating-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .rating-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        .rating-option label {
+            font-size: 14px;
+            cursor: pointer;
+            color: #333;
+            font-weight: 500;
+        }
+        .submit-section {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 3px solid #e2e8f0;
+        }
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        .results {
+            display: none;
+            background: #f0f9ff;
+            border: 2px solid #3b82f6;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .results h3 {
+            color: #1e40af;
+            margin-bottom: 15px;
+        }
+        .results-text {
+            font-family: monospace;
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 12px;
+            line-height: 1.8;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-height: 400px;
+            overflow-y: auto;
+            width: 100%;
+            border: 1px solid #ccc;
+        }
+        .copy-btn {
+            background: #10b981;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .copy-btn:hover {
+            background: #059669;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧠 Shakhsiyat aur Rishta Readiness Test</h1>
+            <div class="subtitle">
+                Apni personality aur shaadi ke liye tayari ko samajhne ka tareeqa<br>
+                Yeh test aapki emotional patterns, decision-making style, aur relationship compatibility ko samajhta hai
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>📋 Test Kaise Dena Hai:</h3>
+            <p><strong>1.</strong> Har statement ko dhyan se parho aur imaandari se 1 se 5 tak rate karo</p>
+            <p><strong>2.</strong> Koi "sahi" ya "galat" jawab nahi hai - bas apne dil ki baat bolo</p>
+            <p><strong>3.</strong> Is test ko complete karne mein 15-20 minute lagte hain</p>
+            <p><strong>4.</strong> Sab kuch bharne ke baad "Results Dikhayen" button dabao</p>
+            <p><strong>Rating Scale (Number ka matlab):</strong></p>
+            <p style="margin-left: 20px;">
+                <strong>1</strong> = Bilkul galat / Bilkul mujh jaisa nahi<br>
+                <strong>2</strong> = Thora galat / Kabhi kabhi mujh jaisa<br>
+                <strong>3</strong> = Beech ka / 50-50<br>
+                <strong>4</strong> = Sahi hai / Aksar mujh jaisa<br>
+                <strong>5</strong> = Bilkul sahi / Poori tarah mujh jaisa
+            </p>
+        </div>
+
+        <form id="assessmentForm">
+            <!-- SECTION A: Core Personality -->
+            <div class="section">
+                <div class="section-header">Hissa A: Tumhari Asli Shakhsiyat (15 sawal)</div>
+                <div class="section-desc">Yeh sawaal tumhari basic personality traits ko samajhne ke liye hain</div>
+                
+                <div class="question">
+                    <div class="question-text"><span class="question-number">A1.</span> Main naturally outgoing aur social type ka banda/bandi hoon, logon se milna julna pasand hai.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="A1" value="1" id="A1-1"><label for="A1-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="A1" value="2" id="A1-2"><label for="A1-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="A1" value="3" id="A1-3"><label for="A1-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="A1" value="4" id="A1-4"><label for="A1-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="A1" value="5" id="A1-5"><label for="A1-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">A2.</span> Main cheezon ko plan karke karna pasand karta/karti hoon, last minute ya random kaam pasand nahi.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="A2" value="1" id="A2-1"><label for="A2-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="A2" value="2" id="A2-2"><label for="A2-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="A2" value="3" id="A2-3"><label for="A2-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="A2" value="4" id="A2-4"><label for="A2-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="A2" value="5" id="A2-5"><label for="A2-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">A3.</span> Main chhoti chhoti baaton ko bhi bohat sochta/sochti rehta hoon, overthinking hoti hai.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="A3" value="1" id="A3-1"><label for="A3-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="A3" value="2" id="A3-2"><label for="A3-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="A3" value="3" id="A3-3"><label for="A3-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="A3" value="4" id="A3-4"><label for="A3-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="A3" value="5" id="A3-5"><label for="A3-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">A4.</span> Main generally calm rehta/rehti hoon aur stress ko achay se handle kar leta/leti hoon.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="A4" value="1" id="A4-1"><label for="A4-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="A4" value="2" id="A4-2"><label for="A4-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="A4" value="3" id="A4-3"><label for="A4-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="A4" value="4" id="A4-4"><label for="A4-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="A4" value="5" id="A4-5"><label for="A4-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">A5.</span> Mujhe nayi cheezain try karna aur different experiences lena pasand hai.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="A5" value="1" id="A5-1"><label for="A5-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="A5" value="2" id="A5-2"><label for="A5-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="A5" value="3" id="A5-3"><label for="A5-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="A5" value="4" id="A5-4"><label for="A5-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="A5" value="5" id="A5-5"><label for="A5-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">A6.</span> Main doosron ki feelings aur zarooraton ka bohat khayal rakhta/rakhti hoon.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="A6" value="1" id="A6-1"><label for="A6-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="A6" value="2" id="A6-2"><label for="A6-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="A6" value="3" id="A6-3"><label for="A6-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="A6" value="4" id="A6-4"><label for="A6-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="A6" value="5" id="A6-5"><label for="A6-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">A7.</span> Main bohat disciplined hoon aur apne wadon/commitments ko follow through karta/karti hoon.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="A7" value="1" id="A7-1"><label for="A7-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="A7" value="2" id="A7-2"><label for="A7-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="A7" value="3" id="A7-3"><label for="A7-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="A7" value="4" id="A7-4"><label for="A7-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="A7" value="5" id="A7-5"><label for="A7-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">A8.</span> Mujhe doosron ki criticism/tanqeed se bohat takleef hoti hai, khass kar apnon se.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="A8" value="1" id="A8-1"><label for="A8-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="A8" value="2" id="A8-2"><label for="A8-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="A8" value="3" id="A8-3"><label for="A8-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="A8" value="4" id="A8-4"><label for="A8-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="A8" value="5" id="A8-5"><label for="A8-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">A9.</span> Mujhe lead karna aur charge lena comfortable lagta hai.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="A9" value="1" id="A9-1"><label for="A9-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="A9" value="2" id="A9-2"><label for="A9-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="A9" value="3" id="A9-3"><label for="A9-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="A9" value="4" id="A9-4"><label for="A9-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="A9" value="5" id="A9-5"><label for="A9-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">A10.</span> Main apni asli feelings ko doosron se chhupa leta/leti hoon.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="A10" value="1" id="A10-1"><label for="A10-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="A10" value="2" id="A10-2"><label for="A10-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="A10" value="3" id="A10-3"><label for="A10-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="A10" value="4" id="A10-4"><label for="A10-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="A10" value="5" id="A10-5"><label for="A10-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">A11.</span> Jab main stress mein hota/hoti hoon, to future ke bare mein bohat negative sochta/sochti hoon.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="A11" value="1" id="A11-1"><label for="A11-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="A11" value="2" id="A11-2"><label for="A11-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="A11" value="3" id="A11-3"><label for="A11-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="A11" value="4" id="A11-4"><label for="A11-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="A11" value="5" id="A11-5"><label for="A11-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">A12.</span> Jab koi mujhe confront kare to main defensive ho jata/jati hoon.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="A12" value="1" id="A12-1"><label for="A12-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="A12" value="2" id="A12-2"><label for="A12-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="A12" value="3" id="A12-3"><label for="A12-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="A12" value="4" id="A12-4"><label for="A12-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="A12" value="5" id="A12-5"><label for="A12-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">A13.</span> Mujhe mushkil kaam ko complete karne tak tikte rehna difficult lagta hai.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="A13" value="1" id="A13-1"><label for="A13-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="A13" value="2" id="A13-2"><label for="A13-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="A13" value="3" id="A13-3"><label for="A13-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="A13" value="4" id="A13-4"><label for="A13-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="A13" value="5" id="A13-5"><label for="A13-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">A14.</span> Main aksar doosron ki expectations poori karte karte khud thak jata/jati hoon.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="A14" value="1" id="A14-1"><label for="A14-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="A14" value="2" id="A14-2"><label for="A14-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="A14" value="3" id="A14-3"><label for="A14-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="A14" value="4" id="A14-4"><label for="A14-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="A14" value="5" id="A14-5"><label for="A14-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">A15.</span> Mujhe apne emotions ki clear samajh hai - main jaanta/jaanti hoon ke main kya feel kar raha/rahi hoon aur kyun.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="A15" value="1" id="A15-1"><label for="A15-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="A15" value="2" id="A15-2"><label for="A15-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="A15" value="3" id="A15-3"><label for="A15-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="A15" value="4" id="A15-4"><label for="A15-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="A15" value="5" id="A15-5"><label for="A15-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION B: Relationship Values -->
+            <div class="section">
+                <div class="section-header">Hissa B: Rishte Mein Tumhari Priorities (12 sawal)</div>
+                <div class="section-desc">Tumhare liye rishte mein sab se zyada kya important hai?</div>
+                
+                <div class="question">
+                    <div class="question-text"><span class="question-number">B1.</span> Mere liye rishte mein emotional connection aur samajhdar hona sab se important hai.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="B1" value="1" id="B1-1"><label for="B1-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="B1" value="2" id="B1-2"><label for="B1-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="B1" value="3" id="B1-3"><label for="B1-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="B1" value="4" id="B1-4"><label for="B1-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="B1" value="5" id="B1-5"><label for="B1-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">B2.</span> Physical attraction aur looks mere liye bohat important hain partner mein.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="B2" value="1" id="B2-1"><label for="B2-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="B2" value="2" id="B2-2"><label for="B2-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="B2" value="3" id="B2-3"><label for="B2-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="B2" value="4" id="B2-4"><label for="B2-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="B2" value="5" id="B2-5"><label for="B2-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">B3.</span> Main character aur values ko zyada priority deta/deti hoon looks ya status se.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="B3" value="1" id="B3-1"><label for="B3-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="B3" value="2" id="B3-2"><label for="B3-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="B3" value="3" id="B3-3"><label for="B3-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="B3" value="4" id="B3-4"><label for="B3-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="B3" value="5" id="B3-5"><label for="B3-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">B4.</span> Main chahta/chahti hoon ke mera partner mera best friend bhi ho, sirf romantic partner nahi.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="B4" value="1" id="B4-1"><label for="B4-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="B4" value="2" id="B4-2"><label for="B4-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="B4" value="3" id="B4-3"><label for="B4-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="B4" value="4" id="B4-4"><label for="B4-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="B4" value="5" id="B4-5"><label for="B4-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">B5.</span> Mere partner ka mere family ke sath achay se rahna mere liye bohat zaroori hai.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="B5" value="1" id="B5-1"><label for="B5-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="B5" value="2" id="B5-2"><label for="B5-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="B5" value="3" id="B5-3"><label for="B5-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="B5" value="4" id="B5-4"><label for="B5-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="B5" value="5" id="B5-5"><label for="B5-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">B6.</span> Shared religious/spiritual values mere liye rishte mein essential hain.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="B6" value="1" id="B6-1"><label for="B6-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="B6" value="2" id="B6-2"><label for="B6-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="B6" value="3" id="B6-3"><label for="B6-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="B6" value="4" id="B6-4"><label for="B6-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="B6" value="5" id="B6-5"><label for="B6-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">B7.</span> Main rishte ke decisions zyada logic se leta/leti hoon, emotions se nahi.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="B7" value="1" id="B7-1"><label for="B7-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="B7" value="2" id="B7-2"><label for="B7-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="B7" value="3" id="B7-3"><label for="B7-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="B7" value="4" id="B7-4"><label for="B7-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="B7" value="5" id="B7-5"><label for="B7-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">B8.</span> Mere partner ki education level aur career goals mujhe bohat matter karte hain.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="B8" value="1" id="B8-1"><label for="B8-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="B8" value="2" id="B8-2"><label for="B8-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="B8" value="3" id="B8-3"><label for="B8-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="B8" value="4" id="B8-4"><label for="B8-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="B8" value="5" id="B8-5"><label for="B8-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">B9.</span> Mujhe apne partner se regular reassurance aur pyar ka izhar chahiye.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="B9" value="1" id="B9-1"><label for="B9-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="B9" value="2" id="B9-2"><label for="B9-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="B9" value="3" id="B9-3"><label for="B9-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="B9" value="4" id="B9-4"><label for="B9-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="B9" value="5" id="B9-5"><label for="B9-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">B10.</span> Mera mann hai ke ek achha partner mujh se bohat zyada disagree ya challenge na kare.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="B10" value="1" id="B10-1"><label for="B10-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="B10" value="2" id="B10-2"><label for="B10-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="B10" value="3" id="B10-3"><label for="B10-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="B10" value="4" id="B10-4"><label for="B10-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="B10" value="5" id="B10-5"><label for="B10-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">B11.</span> Financial stability aur paisa manage karna mere liye top priority hai partner mein.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="B11" value="1" id="B11-1"><label for="B11-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="B11" value="2" id="B11-2"><label for="B11-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="B11" value="3" id="B11-3"><label for="B11-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="B11" value="4" id="B11-4"><label for="B11-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="B11" value="5" id="B11-5"><label for="B11-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">B12.</span> Main chahta/chahti hoon mera partner mujhe space aur independence de, overly clingy na ho.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="B12" value="1" id="B12-1"><label for="B12-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="B12" value="2" id="B12-2"><label for="B12-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="B12" value="3" id="B12-3"><label for="B12-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="B12" value="4" id="B12-4"><label for="B12-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="B12" value="5" id="B12-5"><label for="B12-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION C: Attachment Patterns -->
+            <div class="section">
+                <div class="section-header">Hissa C: Emotional Attachment ka Style (10 sawal)</div>
+                <div class="section-desc">Tum emotionally kaise connect hote ho aur closeness ko kaise handle karte ho</div>
+                
+                <div class="question">
+                    <div class="question-text"><span class="question-number">C1.</span> Mujhe rishton mein rejected ya chhora jane ka bohat darr rehta hai.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="C1" value="1" id="C1-1"><label for="C1-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="C1" value="2" id="C1-2"><label for="C1-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="C1" value="3" id="C1-3"><label for="C1-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="C1" value="4" id="C1-4"><label for="C1-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="C1" value="5" id="C1-5"><label for="C1-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">C2.</span> Main rishton mein bohat jaldi emotionally attach ho jata/jati hoon.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="C2" value="1" id="C2-1"><label for="C2-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="C2" value="2" id="C2-2"><label for="C2-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="C2" value="3" id="C2-3"><label for="C2-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="C2" value="4" id="C2-4"><label for="C2-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="C2" value="5" id="C2-5"><label for="C2-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">C3.</span> Agar mujhe lagay ke koi door ho raha hai, to main double effort lagata/lagati hoon unko paas rakhne ke liye.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="C3" value="1" id="C3-1"><label for="C3-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="C3" value="2" id="C3-2"><label for="C3-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="C3" value="3" id="C3-3"><label for="C3-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="C3" value="4" id="C3-4"><label for="C3-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="C3" value="5" id="C3-5"><label for="C3-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">C4.</span> Jab koi qareebi naraaz ho, main bohat guilty feel karta/karti hoon chahe meri galti na bhi ho.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="C4" value="1" id="C4-1"><label for="C4-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="C4" value="2" id="C4-2"><label for="C4-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="C4" value="3" id="C4-3"><label for="C4-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="C4" value="4" id="C4-4"><label for="C4-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="C4" value="5" id="C4-5"><label for="C4-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">C5.</span> Main apne asli emotions share karne se ghabrata/ghabrati hoon ke doosre kya sochenge.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="C5" value="1" id="C5-1"><label for="C5-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="C5" value="2" id="C5-2"><label for="C5-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="C5" value="3" id="C5-3"><label for="C5-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="C5" value="4" id="C5-4"><label for="C5-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="C5" value="5" id="C5-5"><label for="C5-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">C6.</span> Jab rishte mein koi problem ho, main seedha address karta/karti hoon avoid nahi karta/karti.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="C6" value="1" id="C6-1"><label for="C6-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="C6" value="2" id="C6-2"><label for="C6-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="C6" value="3" id="C6-3"><label for="C6-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="C6" value="4" id="C6-4"><label for="C6-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="C6" value="5" id="C6-5"><label for="C6-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">C7.</span> Main conflict se bachna prefer karta/karti hoon chahe apni feelings express na kar sakun.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="C7" value="1" id="C7-1"><label for="C7-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="C7" value="2" id="C7-2"><label for="C7-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="C7" value="3" id="C7-3"><label for="C7-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="C7" value="4" id="C7-4"><label for="C7-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="C7" value="5" id="C7-5"><label for="C7-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">C8.</span> Main aksar romantic relationships mein jealous ya insecure feel karta/karti hoon.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="C8" value="1" id="C8-1"><label for="C8-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="C8" value="2" id="C8-2"><label for="C8-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="C8" value="3" id="C8-3"><label for="C8-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="C8" value="4" id="C8-4"><label for="C8-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="C8" value="5" id="C8-5"><label for="C8-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">C9.</span> Mujhe apne partner ki full attention chahiye, uncomfortable lagta hai jab wo doosron pe focus kare.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="C9" value="1" id="C9-1"><label for="C9-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="C9" value="2" id="C9-2"><label for="C9-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="C9" value="3" id="C9-3"><label for="C9-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="C9" value="4" id="C9-4"><label for="C9-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="C9" value="5" id="C9-5"><label for="C9-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">C10.</span> Main vulnerable aur open hona comfortable feel karta/karti hoon romantic partners ke sath.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="C10" value="1" id="C10-1"><label for="C10-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="C10" value="2" id="C10-2"><label for="C10-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="C10" value="3" id="C10-3"><label for="C10-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="C10" value="4" id="C10-4"><label for="C10-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="C10" value="5" id="C10-5"><label for="C10-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION D: Decision Making -->
+            <div class="section">
+                <div class="section-header">Hissa D: Decisions Lena aur Bahar ka Pressure (10 sawal)</div>
+                <div class="section-desc">Tum important faislay kaise lete ho aur bahar ke pressure ko kaise handle karte ho</div>
+                
+                <div class="question">
+                    <div class="question-text"><span class="question-number">D1.</span> Mere liye family ki approval meri apni pasand se zyada important hai bari decisions mein.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="D1" value="1" id="D1-1"><label for="D1-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="D1" value="2" id="D1-2"><label for="D1-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="D1" value="3" id="D1-3"><label for="D1-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="D1" value="4" id="D1-4"><label for="D1-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="D1" value="5" id="D1-5"><label for="D1-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">D2.</span> Mujhe "log kya kahenge" ka bohat pressure feel hota hai mere choices ke bare mein.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="D2" value="1" id="D2-1"><label for="D2-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="D2" value="2" id="D2-2"><label for="D2-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="D2" value="3" id="D2-3"><label for="D2-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="D2" value="4" id="D2-4"><label for="D2-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="D2" value="5" id="D2-5"><label for="D2-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">D3.</span> Mujhe bohat darr lagta hai ke galat decision lo aur log criticism karein.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="D3" value="1" id="D3-1"><label for="D3-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="D3" value="2" id="D3-2"><label for="D3-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="D3" value="3" id="D3-3"><label for="D3-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="D3" value="4" id="D3-4"><label for="D3-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="D3" value="5" id="D3-5"><label for="D3-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">D4.</span> Main apne decisions pe firm reh sakta/sakti hoon chahe family ya dost strongly disagree karein.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="D4" value="1" id="D4-1"><label for="D4-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="D4" value="2" id="D4-2"><label for="D4-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="D4" value="3" id="D4-3"><label for="D4-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="D4" value="4" id="D4-4"><label for="D4-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="D4" value="5" id="D4-5"><label for="D4-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">D5.</span> Barte hue, zyada tar important decisions mere elders ne liye, maine zyada follow kiya.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="D5" value="1" id="D5-1"><label for="D5-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="D5" value="2" id="D5-2"><label for="D5-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="D5" value="3" id="D5-3"><label for="D5-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="D5" value="4" id="D5-4"><label for="D5-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="D5" value="5" id="D5-5"><label for="D5-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">D6.</span> Main aksar doosron ki khushi ko apni khushi pe priority deta/deti hoon.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="D6" value="1" id="D6-1"><label for="D6-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="D6" value="2" id="D6-2"><label for="D6-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="D6" value="3" id="D6-3"><label for="D6-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="D6" value="4" id="D6-4"><label for="D6-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="D6" value="5" id="D6-5"><label for="D6-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">D7.</span> Mere liye apni awaz rakhna bohat mushkil hai jab authority figures ki strong opinions hon.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="D7" value="1" id="D7-1"><label for="D7-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="D7" value="2" id="D7-2"><label for="D7-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="D7" value="3" id="D7-3"><label for="D7-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="D7" value="4" id="D7-4"><label for="D7-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="D7" value="5" id="D7-5"><label for="D7-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">D8.</span> Agar koi decision mujhe emotionally barbaad karega, main us se nikal sakta/sakti hoon family pressure ke bawajood.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="D8" value="1" id="D8-1"><label for="D8-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="D8" value="2" id="D8-2"><label for="D8-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="D8" value="3" id="D8-3"><label for="D8-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="D8" value="4" id="D8-4"><label for="D8-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="D8" value="5" id="D8-5"><label for="D8-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">D9.</span> Main chahta/chahti hoon ke log mujhe funny, smart, ya likeable samjhein, agar nahi samjhein to mujhe bothers karta hai.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="D9" value="1" id="D9-1"><label for="D9-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="D9" value="2" id="D9-2"><label for="D9-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="D9" value="3" id="D9-3"><label for="D9-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="D9" value="4" id="D9-4"><label for="D9-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="D9" value="5" id="D9-5"><label for="D9-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">D10.</span> Main major life decisions primarily us base pe leta/leti hoon jo mujhe personally sahi lagta hai.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="D10" value="1" id="D10-1"><label for="D10-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="D10" value="2" id="D10-2"><label for="D10-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="D10" value="3" id="D10-3"><label for="D10-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="D10" value="4" id="D10-4"><label for="D10-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="D10" value="5" id="D10-5"><label for="D10-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION E: Commitment Patterns -->
+            <div class="section">
+                <div class="section-header">Hissa E: Commitment aur Rishton ki History (12 sawal)</div>
+                <div class="section-desc">Tumhare past relationships mein kaisa pattern raha hai</div>
+                
+                <div class="question">
+                    <div class="question-text"><span class="question-number">E1.</span> Mere paas relationships shuru karne lekin serious hone se pehle chhor dene ki history hai.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="E1" value="1" id="E1-1"><label for="E1-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="E1" value="2" id="E1-2"><label for="E1-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="E1" value="3" id="E1-3"><label for="E1-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="E1" value="4" id="E1-4"><label for="E1-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="E1" value="5" id="E1-5"><label for="E1-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">E2.</span> Kisi ko pursue karna actual relationship se zyada appealing lagta hai mujhe.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="E2" value="1" id="E2-1"><label for="E2-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="E2" value="2" id="E2-2"><label for="E2-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="E2" value="3" id="E2-3"><label for="E2-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="E2" value="4" id="E2-4"><label for="E2-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="E2" value="5" id="E2-5"><label for="E2-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">E3.</span> Jab mujhe koi cheez ya koi mil jaye jo main chahta/chahti tha, main interest kho deta/deti hoon.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="E3" value="1" id="E3-1"><label for="E3-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="E3" value="2" id="E3-2"><label for="E3-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="E3" value="3" id="E3-3"><label for="E3-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="E3" value="4" id="E3-4"><label for="E3-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="E3" value="5" id="E3-5"><label for="E3-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">E4.</span> Main kabhi bhi kisi mushkil decision pe extended period tak committed nahi raha/rahi.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="E4" value="1" id="E4-1"><label for="E4-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="E4" value="2" id="E4-2"><label for="E4-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="E4" value="3" id="E4-3"><label for="E4-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="E4" value="4" id="E4-4"><label for="E4-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="E4" value="5" id="E4-5"><label for="E4-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">E5.</span> Main hamesha ek "escape route" apne dimaag mein rakhta/rakhti hoon committed situations mein bhi.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="E5" value="1" id="E5-1"><label for="E5-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="E5" value="2" id="E5-2"><label for="E5-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="E5" value="3" id="E5-3"><label for="E5-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="E5" value="4" id="E5-4"><label for="E5-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="E5" value="5" id="E5-5"><label for="E5-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">E6.</span> Maine past mein logon ko hurt kiya hai achanak relationships khatam kar ke bina proper communication ke.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="E6" value="1" id="E6-1"><label for="E6-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="E6" value="2" id="E6-2"><label for="E6-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="E6" value="3" id="E6-3"><label for="E6-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="E6" value="4" id="E6-4"><label for="E6-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="E6" value="5" id="E6-5"><label for="E6-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">E7.</span> Jab relationships real aur serious ho jati hain, mujhe suffocate feel hota hai.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="E7" value="1" id="E7-1"><label for="E7-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="E7" value="2" id="E7-2"><label for="E7-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="E7" value="3" id="E7-3"><label for="E7-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="E7" value="4" id="E7-4"><label for="E7-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="E7" value="5" id="E7-5"><label for="E7-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">E8.</span> Maine successfully apni life mein kam az kam ek long-term committed relationship maintain ki hai.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="E8" value="1" id="E8-1"><label for="E8-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="E8" value="2" id="E8-2"><label for="E8-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="E8" value="3" id="E8-3"><label for="E8-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="E8" value="4" id="E8-4"><label for="E8-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="E8" value="5" id="E8-5"><label for="E8-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">E9.</span> Mujhe yakeen hai main life partner ke sath commit kar sakta/sakti hoon agar sahi insaan mile.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="E9" value="1" id="E9-1"><label for="E9-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="E9" value="2" id="E9-2"><label for="E9-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="E9" value="3" id="E9-3"><label for="E9-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="E9" value="4" id="E9-4"><label for="E9-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="E9" value="5" id="E9-5"><label for="E9-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">E10.</span> Main aksar current partners ko past interests ya fantasies se compare karta/karti hoon.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="E10" value="1" id="E10-1"><label for="E10-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="E10" value="2" id="E10-2"><label for="E10-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="E10" value="3" id="E10-3"><label for="E10-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="E10" value="4" id="E10-4"><label for="E10-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="E10" value="5" id="E10-5"><label for="E10-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">E11.</span> Main jo nahi mil sakta use chahna aur jo mil jaye us ki value kho dena - yeh mera struggle hai.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="E11" value="1" id="E11-1"><label for="E11-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="E11" value="2" id="E11-2"><label for="E11-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="E11" value="3" id="E11-3"><label for="E11-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="E11" value="4" id="E11-4"><label for="E11-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="E11" value="5" id="E11-5"><label for="E11-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">E12.</span> Mere paas relationships ke bohat mauke aaye lekin main zyada tar se walk away kar gaya/gayi.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="E12" value="1" id="E12-1"><label for="E12-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="E12" value="2" id="E12-2"><label for="E12-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="E12" value="3" id="E12-3"><label for="E12-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="E12" value="4" id="E12-4"><label for="E12-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="E12" value="5" id="E12-5"><label for="E12-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION F: Empathy -->
+            <div class="section">
+                <div class="section-header">Hissa F: Empathy aur Apne Aap Pe Focus (8 sawal)</div>
+                <div class="section-desc">Tum apni zarooraton ko doosron ki feelings ke sath kaise balance karte ho</div>
+                
+                <div class="question">
+                    <div class="question-text"><span class="question-number">F1.</span> Main tab hi doosron ki madad karta/karti hoon jab mujhe kuch fayda mile.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="F1" value="1" id="F1-1"><label for="F1-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="F1" value="2" id="F1-2"><label for="F1-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="F1" value="3" id="F1-3"><label for="F1-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="F1" value="4" id="F1-4"><label for="F1-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="F1" value="5" id="F1-5"><label for="F1-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">F2.</span> Har situation mein main automatically dekhta/dekhti hoon ke mujhe sab se zyada kya benefit hoga.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="F2" value="1" id="F2-1"><label for="F2-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="F2" value="2" id="F2-2"><label for="F2-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="F2" value="3" id="F2-3"><label for="F2-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="F2" value="4" id="F2-4"><label for="F2-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="F2" value="5" id="F2-5"><label for="F2-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">F3.</span> Doosron ka dard ya khushi mujhe affect nahi karti jab tak mujhe directly impact na ho.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="F3" value="1" id="F3-1"><label for="F3-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="F3" value="2" id="F3-2"><label for="F3-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="F3" value="3" id="F3-3"><label for="F3-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="F3" value="4" id="F3-4"><label for="F3-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="F3" value="5" id="F3-5"><label for="F3-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">F4.</span> Main genuinely logon ki parwaah karta/karti hoon aur aksar unki zarooraton ko apni se pehle rakhta/rakhti hoon.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="F4" value="1" id="F4-1"><label for="F4-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="F4" value="2" id="F4-2"><label for="F4-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="F4" value="3" id="F4-3"><label for="F4-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="F4" value="4" id="F4-4"><label for="F4-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="F4" value="5" id="F4-5"><label for="F4-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">F5.</span> Main easily imagine kar sakta/sakti hoon ke doosre kaise feel kar rahe hain aur accordingly apna behavior adjust karta/karti hoon.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="F5" value="1" id="F5-1"><label for="F5-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="F5" value="2" id="F5-2"><label for="F5-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="F5" value="3" id="F5-3"><label for="F5-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="F5" value="4" id="F5-4"><label for="F5-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="F5" value="5" id="F5-5"><label for="F5-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">F6.</span> Mujhe samajh nahi aata ke log cheezon pe itne emotional kyun ho jate hain.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="F6" value="1" id="F6-1"><label for="F6-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="F6" value="2" id="F6-2"><label for="F6-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="F6" value="3" id="F6-3"><label for="F6-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="F6" value="4" id="F6-4"><label for="F6-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="F6" value="5" id="F6-5"><label for="F6-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">F7.</span> Main willingly apna comfort sacrifice karta/karti hoon kisi ki genuine zaroorat ko help karne ke liye.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="F7" value="1" id="F7-1"><label for="F7-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="F7" value="2" id="F7-2"><label for="F7-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="F7" value="3" id="F7-3"><label for="F7-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="F7" value="4" id="F7-4"><label for="F7-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="F7" value="5" id="F7-5"><label for="F7-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">F8.</span> Logon ne mujhe kabhi kabhi selfish ya self-centered kaha hai.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="F8" value="1" id="F8-1"><label for="F8-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="F8" value="2" id="F8-2"><label for="F8-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="F8" value="3" id="F8-3"><label for="F8-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="F8" value="4" id="F8-4"><label for="F8-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="F8" value="5" id="F8-5"><label for="F8-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION G: Control & Power -->
+            <div class="section">
+                <div class="section-header">Hissa G: Control aur Power (8 sawal)</div>
+                <div class="section-desc">Rishton mein control aur authority ke sath tumhara comfort level</div>
+                
+                <div class="question">
+                    <div class="question-text"><span class="question-number">G1.</span> Mujhe pasand hai ke main hi rishte mein final decisions lun.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="G1" value="1" id="G1-1"><label for="G1-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="G1" value="2" id="G1-2"><label for="G1-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="G1" value="3" id="G1-3"><label for="G1-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="G1" value="4" id="G1-4"><label for="G1-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="G1" value="5" id="G1-5"><label for="G1-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">G2.</span> Main prefer karta/karti hoon ke mera partner mujh se agree kare rather than challenge kare.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="G2" value="1" id="G2-1"><label for="G2-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="G2" value="2" id="G2-2"><label for="G2-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="G2" value="3" id="G2-3"><label for="G2-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="G2" value="4" id="G2-4"><label for="G2-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="G2" value="5" id="G2-5"><label for="G2-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">G3.</span> Mujhe bother hota hai jab mera partner doosron pe attention de mujh pe focus karne ki bajaye.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="G3" value="1" id="G3-1"><label for="G3-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="G3" value="2" id="G3-2"><label for="G3-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="G3" value="3" id="G3-3"><label for="G3-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="G3" value="4" id="G3-4"><label for="G3-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="G3" value="5" id="G3-5"><label for="G3-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">G4.</span> Main chahta/chahti hoon ke mera partner feel kare ke main unke liye sab kuch hoon.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="G4" value="1" id="G4-1"><label for="G4-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="G4" value="2" id="G4-2"><label for="G4-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="G4" value="3" id="G4-3"><label for="G4-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="G4" value="4" id="G4-4"><label for="G4-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="G4" value="5" id="G4-5"><label for="G4-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">G5.</span> Mera yakeen hai equal decision-making aur power sharing mein relationships mein.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="G5" value="1" id="G5-1"><label for="G5-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="G5" value="2" id="G5-2"><label for="G5-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="G5" value="3" id="G5-3"><label for="G5-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="G5" value="4" id="G5-4"><label for="G5-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="G5" value="5" id="G5-5"><label for="G5-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">G6.</span> Mujhe uncomfortable feel hota hai jab mujhe lagta hai main control mein nahi hoon.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="G6" value="1" id="G6-1"><label for="G6-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="G6" value="2" id="G6-2"><label for="G6-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="G6" value="3" id="G6-3"><label for="G6-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="G6" value="4" id="G6-4"><label for="G6-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="G6" value="5" id="G6-5"><label for="G6-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">G7.</span> Meri ego jaldi hurt ho jati hai jab mera partner meri opinions validate nahi karta/karti.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="G7" value="1" id="G7-1"><label for="G7-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="G7" value="2" id="G7-2"><label for="G7-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="G7" value="3" id="G7-3"><label for="G7-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="G7" value="4" id="G7-4"><label for="G7-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="G7" value="5" id="G7-5"><label for="G7-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">G8.</span> Main respect aur welcome karta/karti hoon apne partner ki independence aur alag interests.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="G8" value="1" id="G8-1"><label for="G8-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="G8" value="2" id="G8-2"><label for="G8-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="G8" value="3" id="G8-3"><label for="G8-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="G8" value="4" id="G8-4"><label for="G8-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="G8" value="5" id="G8-5"><label for="G8-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION H: Financial Management -->
+            <div class="section">
+                <div class="section-header">Hissa H: Paisa aur Practical Life Management (6 sawal)</div>
+                <div class="section-desc">Adult life ke practical aspects manage karne ki tumhari ability</div>
+                
+                <div class="question">
+                    <div class="question-text"><span class="question-number">H1.</span> Main apna paisa achay se manage karta/karti hoon aur regularly save karta/karti hoon.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="H1" value="1" id="H1-1"><label for="H1-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="H1" value="2" id="H1-2"><label for="H1-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="H1" value="3" id="H1-3"><label for="H1-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="H1" value="4" id="H1-4"><label for="H1-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="H1" value="5" id="H1-5"><label for="H1-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">H2.</span> Paisa mere hathon se easily slip ho jata hai - main track nahi rakhta/rakhti ke kahan ja raha hai.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="H2" value="1" id="H2-1"><label for="H2-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="H2" value="2" id="H2-2"><label for="H2-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="H2" value="3" id="H2-3"><label for="H2-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="H2" value="4" id="H2-4"><label for="H2-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="H2" value="5" id="H2-5"><label for="H2-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">H3.</span> Main ek family ko financial security aur stability provide kar sakta/sakti hoon.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="H3" value="1" id="H3-1"><label for="H3-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="H3" value="2" id="H3-2"><label for="H3-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="H3" value="3" id="H3-3"><label for="H3-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="H3" value="4" id="H3-4"><label for="H3-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="H3" value="5" id="H3-5"><label for="H3-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">H4.</span> Main apni cheezon, schedule, aur responsibilities ke sath organized hoon.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="H4" value="1" id="H4-1"><label for="H4-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="H4" value="2" id="H4-2"><label for="H4-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="H4" value="3" id="H4-3"><label for="H4-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="H4" value="4" id="H4-4"><label for="H4-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="H4" value="5" id="H4-5"><label for="H4-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">H5.</span> Main stress aur unexpected problems ko calmly aur effectively handle karta/karti hoon.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="H5" value="1" id="H5-1"><label for="H5-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="H5" value="2" id="H5-2"><label for="H5-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="H5" value="3" id="H5-3"><label for="H5-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="H5" value="4" id="H5-4"><label for="H5-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="H5" value="5" id="H5-5"><label for="H5-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">H6.</span> Main household aur family responsibilities manage karne ke capable hoon.</div>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option"><input type="radio" name="H6" value="1" id="H6-1"><label for="H6-1">1</label></div>
+                            <div class="rating-option"><input type="radio" name="H6" value="2" id="H6-2"><label for="H6-2">2</label></div>
+                            <div class="rating-option"><input type="radio" name="H6" value="3" id="H6-3"><label for="H6-3">3</label></div>
+                            <div class="rating-option"><input type="radio" name="H6" value="4" id="H6-4"><label for="H6-4">4</label></div>
+                            <div class="rating-option"><input type="radio" name="H6" value="5" id="H6-5"><label for="H6-5">5</label></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Section -->
+            <div class="submit-section">
+                <button type="button" class="submit-btn" onclick="generateResults()">Results Dikhayen</button>
+                <div class="results" id="results">
+                    <h3>Aapke Test Ke Results</h3>
+                    <p style="font-size: 14px; color: #1e3a8a; margin-bottom: 15px;">Is text ko copy karo aur analysis ke liye share karo:</p>
+                    <textarea class="results-text" id="resultsText" readonly></textarea>
+                    <button class="copy-btn" onclick="copyResults()">Copy Karo</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function generateResults() {
+            const form = document.getElementById('assessmentForm');
+            const formData = new FormData(form);
+            let results = "SHAKHSIYAT AUR RISHTA READINESS TEST RESULTS\n";
+            results += "=" .repeat(60) + "\n\n";
+            
+            // Check if all questions are answered
+            const sections = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+            const questionCounts = { A: 15, B: 12, C: 10, D: 10, E: 12, F: 8, G: 8, H: 6 };
+            let allAnswered = true;
+            
+            for (let section of sections) {
+                for (let i = 1; i <= questionCounts[section]; i++) {
+                    if (!formData.get(`${section}${i}`)) {
+                        allAnswered = false;
+                        break;
+                    }
+                }
+                if (!allAnswered) break;
+            }
+            
+            if (!allAnswered) {
+                alert('Kripya sare sawalon ke jawab dein pehle results generate karne se pehle.');
+                return;
+            }
+            
+            // Generate results
+            results += "Hissa A - Asli Shakhsiyat:\n";
+            for (let i = 1; i <= 15; i++) {
+                results += `A${i}=${formData.get('A'+i)}, `;
+            }
+            results += "\n\n";
+            
+            results += "Hissa B - Rishte Mein Priorities:\n";
+            for (let i = 1; i <= 12; i++) {
+                results += `B${i}=${formData.get('B'+i)}, `;
+            }
+            results += "\n\n";
+            
+            results += "Hissa C - Emotional Attachment:\n";
+            for (let i = 1; i <= 10; i++) {
+                results += `C${i}=${formData.get('C'+i)}, `;
+            }
+            results += "\n\n";
+            
+            results += "Hissa D - Decisions Lena:\n";
+            for (let i = 1; i <= 10; i++) {
+                results += `D${i}=${formData.get('D'+i)}, `;
+            }
+            results += "\n\n";
+            
+            results += "Hissa E - Commitment Patterns:\n";
+            for (let i = 1; i <= 12; i++) {
+                results += `E${i}=${formData.get('E'+i)}, `;
+            }
+            results += "\n\n";
+            
+            results += "Hissa F - Empathy aur Self-Focus:\n";
+            for (let i = 1; i <= 8; i++) {
+                results += `F${i}=${formData.get('F'+i)}, `;
+            }
+            results += "\n\n";
+            
+            results += "Hissa G - Control aur Power:\n";
+            for (let i = 1; i <= 8; i++) {
+                results += `G${i}=${formData.get('G'+i)}, `;
+            }
+            results += "\n\n";
+            
+            results += "Hissa H - Paisa Management:\n";
+            for (let i = 1; i <= 6; i++) {
+                results += `H${i}=${formData.get('H'+i)}, `;
+            }
+            results += "\n\n";
+            
+            results += "=" .repeat(60) + "\n";
+            results += "TEST KHATAM\n";
+            results += "Yeh results kisi analyst ko bhejo taake detailed personality insights mil sakein.";
+            
+            // Display results
+            document.getElementById('resultsText').value = results;
+            document.getElementById('results').style.display = 'block';
+            
+            // Scroll to results
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function copyResults() {
+            const resultsText = document.getElementById('resultsText');
+            resultsText.select();
+            document.execCommand('copy');
+            
+            const copyBtn = document.querySelector('.copy-btn');
+            copyBtn.textContent = '✓ Copy Ho Gaya!';
+            copyBtn.style.background = '#059669';
+            
+            setTimeout(() => {
+                copyBtn.textContent = 'Copy Karo';
+                copyBtn.style.background = '#10b981';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
